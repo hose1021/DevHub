@@ -7,13 +7,13 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\UserSettingsController;
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HubController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\StatusController;
 use Carbon\Carbon;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 
 Auth::routes(['verify' => true]);
@@ -162,11 +162,5 @@ Route::group(
     }
 );
 
-Route::get(
-    'test',
-    function () {
-        sleep(1);
-
-        return new Response(['status' => 'success']);
-    }
-);
+Route::get('feedback', [ContactController::class, 'show']);
+Route::post('feedback', [ContactController::class, 'send'])->name('feedback');

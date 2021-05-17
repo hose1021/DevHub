@@ -64,26 +64,38 @@ class ArticleController extends Controller
     public function vote(VoteRequest $request): JsonResponse
     {
         $article = Article::findOrFail($request->id);
-        ($request->type === 'up') ? self::upOrDownVote($request->user(), $article) : self::upOrDownVote($request->user(), $article, 'down');
+        ($request->type === 'up')
+            ? self::upOrDownVote($request->user(), $article)
+            : self::upOrDownVote(
+                $request->user(),
+                $article,
+                'down'
+            );
 
         return response()->json(['result' => 'true']);
     }
 
     public static function upOrDownVote(User $user, $target, string $type = 'up'): bool
     {
-        $hasVoted = $user->{'has'.ucfirst($type).'Voted'}($target);
+        $hasVoted = $user->{'has' . ucfirst($type) . 'Voted'}($target);
         DB::beginTransaction();
 
         try {
-            $user->{$type.'Vote'}($target);
+            $user->{$type . 'Vote'}($target);
             if ($hasVoted) {
                 $user->cancelVote($target);
                 foreach ($target->hubs as $hub) {
                     $type === 'up' ? $hub->rating-- : $hub->rating++;
                     $hub->save();
                 }
-                $type === 'up' ? $target->creator->rating-- : $target->creator->rating++;
-                $target->author->save();
+                if ($type === 'up') {
+                    $target->creator->rating--;
+                    $target->creator->karma--;
+                } else {
+                    $target->creator->rating++;
+                    $target->creator->karma++;
+                }
+                $target->creator->save();
                 DB::commit();
 
                 return false;
@@ -92,8 +104,14 @@ class ArticleController extends Controller
                 $type === 'up' ? $hub->rating++ : $hub->rating--;
                 $hub->save();
             }
-            $type === 'up' ? $target->creator->rating++ : $target->creator->rating--;
-            $target->author->save();
+            if ($type === 'up') {
+                $target->creator->rating++;
+                $target->creator->karma++;
+            } else {
+                $target->creator->rating--;
+                $target->creator->karma--;
+            }
+            $target->creator->save();
             DB::commit();
         } catch (Exception $e) {
             DB::rollback();

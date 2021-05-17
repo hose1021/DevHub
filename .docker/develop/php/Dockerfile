@@ -1,4 +1,4 @@
-FROM php:8-fpm-alpine
+FROM php:8-cli-alpine
 
 RUN apk update && apk add --no-cache \
     zip \
@@ -10,9 +10,11 @@ RUN apk update && apk add --no-cache \
     bash \
     tzdata \
     nano \
+    supervisor \
     nodejs npm \
     && pecl install redis \
     && docker-php-ext-enable redis \
+    && docker-php-ext-install sockets \
     && docker-php-ext-install zip pdo_mysql exif opcache pcntl \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer --quit \
     && npm --global install yarn \
@@ -29,6 +31,9 @@ RUN mv $PHP_INI_DIR/php.ini-development $PHP_INI_DIR/php.ini
 
 #COPY ./.docker/develop/php/local.ini $PHP_INI_DIR/conf.d
 #COPY ./.docker/develop/php/xlaravel.pool.conf /usr/local/etc/php-fpm.d/
+RUN docker-php-ext-install sockets
+
+COPY ./.docker/develop/php/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 WORKDIR /var/www
 
@@ -39,3 +44,9 @@ ENV PGID ${PGID}
 
 RUN groupmod -o -g ${PGID} www-data && \
     usermod -o -u ${PUID} -g www-data www-data
+
+ENTRYPOINT ["supervisord", "--nodaemon", "--configuration", "/etc/supervisor/conf.d/supervisord.conf"]
+
+#TODO: add cron
+#COPY ./.docker/common/crontab /etc/crontabs/root
+#CMD crond -f

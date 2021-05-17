@@ -15,7 +15,8 @@
                     <h3 class="dark:text-gray-300 font-medium mb-2">DevHub</h3>
                     <ul class="space-y-2">
                         <li>
-                            <a href="#" class="text-gray-500 hover:text-black dark:hover:text-gray-300 cursor-pointer">О проекте</a>
+                            <a href="#" class="text-gray-500 hover:text-black dark:hover:text-gray-300 cursor-pointer">О
+                                проекте</a>
                         </li>
                         <li>
                             <a href="#" class="text-gray-500 hover:text-black dark:hover:text-gray-300 cursor-pointer">Обновления</a>
@@ -26,7 +27,8 @@
                     <h3 class="dark:text-gray-300 font-medium mb-2">Информация</h3>
                     <ul class="space-y-2">
                         <li>
-                            <a href="#" class="text-gray-500 hover:text-black dark:hover:text-gray-300 cursor-pointer">Как стать автором</a>
+                            <a href="#" class="text-gray-500 hover:text-black dark:hover:text-gray-300 cursor-pointer">Как
+                                стать автором</a>
                         </li>
                         <li>
                             <a href="#" class="text-gray-500 hover:text-black dark:hover:text-gray-300 cursor-pointer">Правила</a>
@@ -37,13 +39,13 @@
                     <h3 class="dark:text-gray-300 font-medium mb-2">Помощь</h3>
                     <ul class="space-y-2">
                         <li>
-                            <a href="#" class="text-gray-500 hover:text-black dark:hover:text-gray-300 cursor-pointer">Вопрос & Ответ</a>
+                            <a href="#" class="text-gray-500 hover:text-black dark:hover:text-gray-300 cursor-pointer">Вопрос
+                                & Ответ</a>
                         </li>
                         <li>
-                            <a href="#" class="text-gray-500 hover:text-black dark:hover:text-gray-300 cursor-pointer">Сообщить об ошибке</a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-gray-500 hover:text-black dark:hover:text-gray-300 cursor-pointer">Пожертвовать</a>
+                            <a href="{{ url('feedback') }}"
+                               class="text-gray-500 hover:text-black dark:hover:text-gray-300 cursor-pointer">Сообщить
+                                об ошибке</a>
                         </li>
                     </ul>
                 </div>
@@ -66,7 +68,7 @@
                         @endif
                     ></select-menu>
                     <switcher class="xs:w-full"
-                                 :menu="[
+                              :menu="[
                     {'name': 'Dark', 'icon': 'bytesize:moon'},
                     {'name': 'Light', 'icon': 'carbon:sun'},
                     ]"
@@ -85,7 +87,8 @@
                           data-icon="ant-design:github-filled" data-inline="false"></span>
                 </a>
                 <a href="#">
-                    <span class="iconify text-2xl text-gray-400 hover:text-black dark:hover:text-gray-300" data-icon="cib:telegram"
+                    <span class="iconify text-2xl text-gray-400 hover:text-black dark:hover:text-gray-300"
+                          data-icon="cib:telegram"
                           data-inline="false"></span>
                 </a>
             </div>

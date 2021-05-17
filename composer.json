@@ -17,6 +17,7 @@
         "jackiedo/dotenv-editor": "^1.2",
         "jcc/laravel-vote": "dev-master",
         "laravel/framework": "^8.12",
+        "laravel/octane": "^1.0",
         "laravel/passport": "^10.1",
         "laravel/socialite": "^5.1",
         "laravel/tinker": "^2.5",
@@ -30,7 +31,8 @@
         "qcod/laravel-gamify": "^1.0",
         "rennokki/laravel-eloquent-query-cache": "^2.6",
         "sentry/sentry-laravel": "^2.3",
-        "spatie/laravel-medialibrary": "^9.0.0"
+        "spatie/laravel-medialibrary": "^9.0.0",
+        "spiral/roadrunner": "^2.2"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",

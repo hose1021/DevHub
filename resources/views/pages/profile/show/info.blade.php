@@ -5,7 +5,7 @@
 @section('main')
     <div class="lg:container xl:container my-4 mx-4 sm:mx-0 xs:mx-0 lg:mx-auto xl:mx-auto xs:my-0" id="app">
         @include('pages.profile.include.header')
-        <div class="flex space-x-3 xs:space-x-0 xs:block">
+        <div class="flex space-x-3 xs:space-x-0 xs:space-y-2 xs:block xs:px-4">
             <div class="w-left xs:w-full">
                 @include('pages.profile.include.tabs')
                 <div class="bg-white border dark:border-gray-700 dark:bg-dpaper overflow-hidden sm:rounded-lg">

@@ -5,24 +5,6 @@ networks:
     driver: bridge
 
 services:
-  nginx:
-    image: ${REGISTRY:-localhost}/devhub_nginx:latest
-    build:
-      context: ./
-      dockerfile: .docker/develop/nginx/Dockerfile
-      cache_from:
-        - ${REGISTRY:-localhost}/devhub_nginx:latest
-    container_name: nginx
-    ports:
-      - "8090:80"
-    volumes:
-      - ./:/var/www/
-    depends_on:
-      - php
-      - mysql
-      - redis
-    networks:
-      - devhub
 
   mysql:
     image: ${REGISTRY:-localhost}/devhub_mysql:latest
@@ -63,14 +45,17 @@ services:
       cache_from:
         - ${REGISTRY:-localhost}/devhub:latest
     container_name: php
+    tty: true
     environment:
       PHP_IDE_CONFIG: 'serverName=docker'
     volumes:
       - ./:/var/www/
-#      - ./.docker/develop/php/local.ini:/usr/local/etc/php/conf.d
       - ./.docker/develop/php/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
     ports:
-      - "9000:9000"
+      - "8090:8080"
+    depends_on:
+      - mysql
+      - redis
     networks:
       - devhub
 

@@ -25,10 +25,10 @@
             {{--                <span class="iconify" data-icon="uil:folder-open" data-inline="false"></span>--}}
             {{--                <p class="text-sm">{{ $admin['cache'] }}</p>--}}
             {{--            </div>--}}
-            <div class="flex items-center space-x-0.5" title="DevHub page speed">
-                <span class="iconify" data-icon="ant-design:field-time-outlined" data-inline="false"></span>
-                <p class="text-sm">{{ Numeric::bcmul_alternative((microtime(true) - LARAVEL_START), '1000', 2) }}ms</p>
-            </div>
+{{--            <div class="flex items-center space-x-0.5" title="DevHub page speed">--}}
+{{--                <span class="iconify" data-icon="ant-design:field-time-outlined" data-inline="false"></span>--}}
+{{--                <p class="text-sm">{{ bcmul((microtime(true) - LARAVEL_START), '1000', 0) }}ms</p>--}}
+{{--            </div>--}}
             <div class="flex items-center space-x-0.5" title="Memory usage">
                 <span class="iconify" data-icon="bx:bx-cog" data-inline="false"></span>
                 <p class="text-sm">{{ Numeric::convert(memory_get_usage(true)) }}</p>
