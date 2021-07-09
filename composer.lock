@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0cf226c5cee3011daa42a9917a418340",
+    "content-hash": "2c642c525dc3b9ca3b766850c00db0a1",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4516,27 +4516,27 @@
         },
         {
             "name": "overtrue/laravel-follow",
-            "version": "2.3.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/overtrue/laravel-follow.git",
-                "reference": "0090336791a222f3969519fda6422f5882f0cb6d"
+                "reference": "278f9999232b098e7367bacadc7b65631d0b0f32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/overtrue/laravel-follow/zipball/0090336791a222f3969519fda6422f5882f0cb6d",
-                "reference": "0090336791a222f3969519fda6422f5882f0cb6d",
+                "url": "https://api.github.com/repos/overtrue/laravel-follow/zipball/278f9999232b098e7367bacadc7b65631d0b0f32",
+                "reference": "278f9999232b098e7367bacadc7b65631d0b0f32",
                 "shasum": ""
             },
             "require": {
-                "laravel/framework": "^5.5|~6.0|~7.0|~8.0"
+                "laravel/framework": "^8.0"
             },
             "require-dev": {
                 "brainmaestro/composer-git-hooks": "^2.7",
-                "friendsofphp/php-cs-fixer": "^2.16",
+                "friendsofphp/php-cs-fixer": "^3.0",
                 "mockery/mockery": "^1.2",
-                "orchestra/testbench": "^5.1|^6.0",
-                "phpunit/phpunit": "~8.0"
+                "orchestra/testbench": "^6.0",
+                "phpunit/phpunit": "^9.0"
             },
             "type": "library",
             "extra": {
@@ -4547,8 +4547,8 @@
                 },
                 "hooks": {
                     "pre-commit": [
-                        "composer test",
-                        "composer fix-style"
+                        "composer fix-style",
+                        "composer test"
                     ],
                     "pre-push": [
                         "composer test",
@@ -4574,9 +4574,9 @@
             "description": "User follow unfollow system for Laravel.",
             "support": {
                 "issues": "https://github.com/overtrue/laravel-follow/issues",
-                "source": "https://github.com/overtrue/laravel-follow/tree/2.3.0"
+                "source": "https://github.com/overtrue/laravel-follow/tree/3.0.1"
             },
-            "time": "2021-04-13T12:11:36+00:00"
+            "time": "2021-06-08T05:14:33+00:00"
         },
         {
             "name": "paragonie/constant_time_encoding",
