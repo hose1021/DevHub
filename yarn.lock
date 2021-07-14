@@ -1371,9 +1371,9 @@ alphanum-sort@^1.0.2:
   integrity sha1-l6ERlkmyEa0zaR2fn0hqjsn74KM=
 
 alpinejs@^3.0.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/alpinejs/-/alpinejs-3.2.1.tgz#d620d1ca121ae2bf22242c2dd427c04d826e5e2b"
-  integrity sha512-MYYGUmVHNWN27TvgAtUCYXZlfsXoVCrLQT3a0Ak6CQKqf1TCHfQKxmhzJWscW5kPcLlOK2aYmWbV2H+XyfN2FQ==
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/alpinejs/-/alpinejs-3.2.2.tgz#3feaa479671212788d9c6716c85dc19f8255c999"
+  integrity sha512-XkQKikB4tJTLIQuRUeF86CZnvmAKhjGzw5lmMri+7MTQzz77DTetuOqldBWjEgdJ/DOExXuiM57rQwWfBPdMPA==
   dependencies:
     "@vue/reactivity" "^3.0.2"
 
